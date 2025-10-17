@@ -139,3 +139,21 @@ button:active {
     background: rgba(255,255,255,0.1);
     border-radius: 15px;
 }
+
+.connection-status {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.status-connected {
+    background: #2ecc71;
+    color: white;
+}
+
+.status-disconnected {
+    background: #e74c3c;
+    color: white;
+}

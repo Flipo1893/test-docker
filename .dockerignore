@@ -1,8 +1,44 @@
+# Git
 .git
 .gitignore
-README.md
-Dockerfile
+.gitattributes
+
+# Docker
 docker-compose.yml
 .dockerignore
-.DS_Store
+
+# Dokumentation
+README.md
+*.md
+
+# IDE & Editor
 .vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temporary
+*.tmp
+*.temp
+.cache
