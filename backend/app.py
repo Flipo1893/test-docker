@@ -102,8 +102,32 @@ def root():
             'GET /health': 'Health Check'
         }
     }), 200
+    
+    # Port von Umgebungsvariable (wichtig für Railway)
+ from flask import Flask, send_from_directory
+import os
+
+app = Flask(__name__)
+
+# 📄 Route: Frontend ausliefern
+@app.route('/')
+def serve_index():
+    return send_from_directory('../frontend', 'index.html')
+
+# 📂 Statische Dateien (CSS, JS)
+@app.route('/<path:path>')
+def serve_static_files(path):
+    frontend_path = os.path.join('../frontend', path)
+    if os.path.exists(frontend_path):
+        return send_from_directory('../frontend', path)
+    else:
+        return "404 Not Found", 404
+
+# 🧠 Beispiel-API
+@app.route('/api/hello')
+def hello():
+    return {"message": "Hello from Flask backend!"}
 
 if __name__ == '__main__':
-    # Port von Umgebungsvariable (wichtig für Railway)
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=False)
+    app.run(host='0.0.0.0', port=port)
