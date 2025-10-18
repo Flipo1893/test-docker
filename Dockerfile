@@ -1,18 +1,18 @@
-# Basis-Image
 FROM python:3.12-slim
 
-# Arbeitsverzeichnis
-WORKDIR /app
+# Arbeitsverzeichnis auf /app/backend setzen
+WORKDIR /app/backend
 
-# Requirements
+# Requirements zuerst kopieren und installieren
 COPY backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Backend & Frontend kopieren
-COPY backend ./backend
-COPY frontend ./frontend
+# Restliches Backend + Frontend kopieren
+COPY backend ./
+COPY ../frontend ../frontend
 
-# Port öffnen
+# Port für Flask
 EXPOSE 5000
 
-CMD ["python", "backend/app.py"]
+# Startbefehl (direkt Flask starten)
+CMD ["python", "app.py"]
