@@ -1,9 +1,9 @@
 {
   "build": {
     "dockerfilePath": "Dockerfile",
-    "context": "."
+    "context": "./backend"
   },
   "deploy": {
-    "startCommand": "python app.py"
+    "startCommand": "gunicorn app:app --bind 0.0.0.0:$PORT"
   }
 }
